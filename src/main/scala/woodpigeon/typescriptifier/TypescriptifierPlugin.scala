@@ -4,9 +4,9 @@ import scala.tools.nsc.plugins.{Plugin, PluginComponent}
 import scala.tools.nsc.{Global, Phase}
 import scala.tools.nsc.io.File
 
-class TsSchemaPlugin(val global: Global) extends Plugin {
+class TypescriptifierPlugin(val global: Global) extends Plugin {
 
-  override val name: String = "ts-schema"
+  override val name: String = "typescriptifier"
   override val description: String = "Generates TypeScript class defs from Scala case classes"
 
   override val components: List[PluginComponent] = List(Component)
@@ -25,7 +25,7 @@ class TsSchemaPlugin(val global: Global) extends Plugin {
 
 
   private object Component extends PluginComponent {
-    val global: Global = TsSchemaPlugin.this.global
+    val global: Global = TypescriptifierPlugin.this.global
     import global._
 
     override val phaseName: String = "ts-schema"

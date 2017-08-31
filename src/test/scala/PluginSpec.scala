@@ -2,7 +2,7 @@ import java.nio.file.{Files, Paths}
 
 import org.scalactic.source.Position
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterEach, FlatSpec, Matchers}
-import woodpigeon.typescriptifier.TsSchemaPlugin
+import woodpigeon.typescriptifier.TypescriptifierPlugin
 
 import scala.io.Source
 import scala.tools.nsc._
@@ -13,11 +13,11 @@ class PluginSpec extends FlatSpec with Matchers with BeforeAndAfter {
 
   def compile(sources: List[String], outputDir: String): Unit = {
     val settings = new Settings()
-    settings.embeddedDefaults[TsSchemaSpec]
-    settings.plugin.value = List("C:\\dev\\bb\\store\\ts-schema\\target\\scala-2.12\\ts-schema_2.12-0.0.1.jar")
-    settings.require.value = List("ts-schema")
+    settings.embeddedDefaults[PluginSpec]
+    settings.plugin.value = List("C:\\dev\\scala\\typescriptifier\\target\\scala-2.12\\typescriptifier_2.12-0.0.1.jar")
+    settings.require.value = List("typescriptifier")
 
-    settings.pluginOptions.value = List(s"ts-schema:output-dir:$outputDir")
+    settings.pluginOptions.value = List(s"typescriptifier:output-dir:$outputDir")
 
     val global = new Global(settings, new ConsoleReporter(settings))
 
