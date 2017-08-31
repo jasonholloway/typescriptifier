@@ -1,0 +1,4 @@
+<plugin>
+    <name>ts-schema</name>
+    <classname>woodpigeon.typescriptifier.TsSchemaPlugin</classname>
+</plugin>
